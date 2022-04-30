@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "Virgil";
+  src: url("/fonts/Virgil.woff2") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-family: Virgil, cursive;
+  background-color: #11061c;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.notebook {
+  display: flex;
+  aspect-ratio: 4/3;
+  height: 90vh;
+  min-height: 40rem;
+  background-color: #eff2df;
+  border-radius: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 1);
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+  border-right: 4px solid rgba(0, 0, 0, 1);
+  border-left: 4px solid rgba(0, 0, 0, 1);
+}
+
+.page {
+  padding: 0.75rem;
+  height: 100%;
+  width: 50%;
+}
+
+.dots {
+  height: 100%;
+  padding: 2rem;
+  background-image: url("/assets/dots.svg");
+  background-repeat: repeat;
+  background-size: 1rem;
+}
+
+.page h1 {
+  text-align: center;
+}
+
+.firstPage {
+  border-right: 3px solid rgba(0, 0, 0, 0.1);
+}
