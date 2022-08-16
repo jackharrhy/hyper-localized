@@ -30,17 +30,27 @@ h1 {
   margin-bottom: 1rem;
 }
 
+@keyframes slidein {
+  from {
+    transform: translateY(-0.5rem) rotate(0.5deg);
+  }
+
+  to {
+    transform: translateY(0) rotate(0);
+  }
+}
+
 .notebook {
   display: flex;
   aspect-ratio: 4/3;
-  height: 90vh;
-  min-height: 40rem;
+  height: 95vh;
   background-color: #eff2df;
   border-radius: 1.5rem;
   border-top: 1px solid rgba(0, 0, 0, 1);
   border-bottom: 1px solid rgba(0, 0, 0, 1);
   border-right: 4px solid rgba(0, 0, 0, 1);
   border-left: 4px solid rgba(0, 0, 0, 1);
+  animation: slidein 0.5s ease-out;
 }
 
 .page {
