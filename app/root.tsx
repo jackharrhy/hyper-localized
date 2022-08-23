@@ -30,7 +30,11 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-background h-full p-8 font-drawn">
-        <Outlet />
+        <main className="bg-paper p-4 h-full border-x-4 border-y border-black rounded-lg">
+          <div className="bg-dots bg-repeat bg-[length:1rem] h-full w-full px-4 py-[1.2rem]">
+            <Outlet />
+          </div>
+        </main>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
