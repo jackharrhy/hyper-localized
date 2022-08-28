@@ -3,12 +3,12 @@ import { Link } from "@remix-run/react";
 export default function Index() {
   return (
     <>
-      <p>welcome to james site</p>
+      <h1 className="text-3xl text-center">welcome to james site</h1>
       <Link to="/blog/">
-        <p>blog</p>
+        <h2 className="text-2xl my-2">blog</h2>
       </Link>
       <Link to="/projects/">
-        <p>projects</p>
+        <h2 className="text-2xl my-2">projects</h2>
       </Link>
     </>
   );

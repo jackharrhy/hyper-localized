@@ -9,11 +9,9 @@ import {
 } from "@remix-run/react";
 
 import tailwindStyles from "./tailwind.css";
-import styles from "./style.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: tailwindStyles },
-  { rel: "stylesheet", href: styles },
 ];
 
 export const meta: MetaFunction = () => ({
@@ -30,8 +28,8 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-background h-full p-8 font-drawn">
-        <main className="bg-paper p-4 h-full border-x-4 border-y border-black rounded-lg">
-          <div className="bg-dots bg-repeat bg-[length:1rem] h-full w-full px-4 py-[1.2rem]">
+        <main className="bg-paper flex flex-col p-4 max-w-[40rem] mx-auto min-h-full border-x-4 border-y border-black rounded-lg">
+          <div className="bg-dots bg-repeat bg-[length:1rem] flex-1 h-full w-full px-4 py-[1.2rem]">
             <Outlet />
           </div>
         </main>

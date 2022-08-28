@@ -17,12 +17,14 @@ export default function Projects() {
   const { projects } = useLoaderData<LoaderData>();
   return (
     <>
-      <Link to="..">
-        <p>back</p>
+      <Link to="/">
+        <p className="text-lg">⟵ back</p>
       </Link>
       <ul>
-        {projects.map((project) => (
-          <li key={project.slug}>{project.title}</li>
+        {projects.map(({ slug, title }) => (
+          <Link key={`./${slug}/`} to={slug}>
+            <li className="text-xl my-3">{title}</li>
+          </Link>
         ))}
       </ul>
     </>

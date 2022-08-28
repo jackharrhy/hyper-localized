@@ -29,11 +29,6 @@ async function getBlogPosts() {
       title: "how to write your first blog post",
       content: await fs.readFile("./prisma/seed-data/blog-01.md", "utf8"),
     },
-    {
-      slug: "second-post",
-      title: "Second Post",
-      content: "This is second post in the blog of james",
-    },
   ];
 }
 

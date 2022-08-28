@@ -1,6 +1,9 @@
-how to write your first blog post
-in just 3 easy steps
-step 1: come to terms with the fact that this is gonna be a shit blog post.
+# how to write your first blog post
+
+_in just 3 easy steps_
+
+## step 1: come to terms with the fact that this is gonna be a shit blog post.
+
 Your first time is always bad, that’s why you just gotta get it out of the way.
 
 I say lean into this fact. Write something intentionally bad. This way you get the first try out of the way and you protect your fragile little ego from criticism because this blog post was meant to be bad.
@@ -9,7 +12,8 @@ You thought I was trying? Ha, of course not! I can write way better than this. _
 
 Always remember: deny, deny, deny.
 
-step 2: stop waiting for inspiration.
+## step 2: stop waiting for inspiration.
+
 Inspiration is your brain tricking you into feeling like you’ve done something; you’ve done nothing.
 
 Wanna know what makes me feel really smart; weed.
@@ -21,7 +25,9 @@ Now, whether this is true or not unfortunately we’ll never know. But it highli
 Just because you feel like you’re doing something - doesn’t mean you’re doing something. You’re only really doing something if you’re really doing something.
 
 Not even Socrates and his silly little gang of thinkers could come up with that indisputable nugget of truth.
-step 3: write something
+
+## step 3: write something
+
 this is the easy part.
 
 You literally can’t fuck this up. You just type words. Push keys on keyboard. Any words will do.
@@ -120,7 +126,10 @@ See the boy had a heart condition. He’s like one of the goats that go rigged w
 
 The End.
 
+---
+
 final thoughts
+
 So that was a terrible story, hey. It wasn’t even a story. It was an unfinished 1st act where the protagonist dies at the refusal of the call to adventure. But it was words, you see. My only goal was to write words and I would say I undoubtedly accomplished that goal today.
 
 I hope you find some value from this post. If nothing else I hope this gives you the confidence that you can write a better first blog post than me.
