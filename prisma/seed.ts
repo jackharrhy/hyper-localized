@@ -1,15 +1,20 @@
+import fs from "fs/promises";
 import { PrismaClient } from "@prisma/client";
 const db = new PrismaClient();
 
 async function seed() {
   await Promise.all(
-    getBlogPosts().map((data) => {
+    (
+      await getBlogPosts()
+    ).map((data) => {
       return db.blogPost.create({ data });
     })
   );
 
   await Promise.all(
-    getProjects().map((data) => {
+    (
+      await getProjects()
+    ).map((data) => {
       return db.project.create({ data });
     })
   );
@@ -17,12 +22,12 @@ async function seed() {
 
 seed();
 
-function getBlogPosts() {
+async function getBlogPosts() {
   return [
     {
-      slug: "hello-world",
-      title: "Hello World",
-      content: "This is the blog of james",
+      slug: "how-to-write-your-first-blog-post",
+      title: "how to write your first blog post",
+      content: await fs.readFile("./prisma/seed-data/blog-01.md", "utf8"),
     },
     {
       slug: "second-post",
@@ -32,7 +37,7 @@ function getBlogPosts() {
   ];
 }
 
-function getProjects() {
+async function getProjects() {
   return [
     {
       slug: "video-project",

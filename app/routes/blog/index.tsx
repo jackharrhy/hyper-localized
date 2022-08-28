@@ -22,7 +22,9 @@ export default function Projects() {
       </Link>
       <ul>
         {blogPosts.map(({ slug, title }) => (
-          <li key={slug}>{title}</li>
+          <Link key={slug} to={slug}>
+            <li>{title}</li>
+          </Link>
         ))}
       </ul>
     </>
