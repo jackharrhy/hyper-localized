@@ -10,6 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@glidejs/glide": "^3.6.0",
     "astro": "^2.0.6"
+  },
+  "devDependencies": {
+    "@types/glidejs__glide": "^3.6.1"
   }
 }

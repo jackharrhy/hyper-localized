@@ -21,35 +21,61 @@ const { title } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,400;0,700;1,400;1,700&family=Mochiy+Pop+One&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"
+    ></script>
+
     <title>james website - {title}</title>
   </head>
   <body>
-    <nav>
-      <a href="/">james website</a>
-      <a href="/videos/">videos</a>
-      <a href="/writing/">writing</a>
-      <a href="/zines/">zines</a>
-    </nav>
-    <main>
-      <slot />
-    </main>
-    <footer>footer</footer>
+    <a href="/">
+      <div class="logo-container">
+        <h1>logo</h1>
+      </div>
+    </a>
+    <div class="content-container">
+      <nav>
+        <a href="/videos/">videos</a>
+        <a href="/blog/">blog</a>
+        <a href="/shop/">shop</a>
+        <a href="/about/">about us</a>
+      </nav>
+      <main>
+        <slot />
+      </main>
+    </div>
   </body>
 </html>
+
+<script>
+  import Glide from "@glidejs/glide";
+
+  new Glide(".glide").mount();
+</script>
+
 <style is:global>
   :root {
-    --primary-500: #698269;
+    --primary-500: #4db8c4;
     --secondary-500: #aa5656;
-    --dark-500: #b99b6b;
-    --light-500: #f1dbbf;
+    --dark-500: #f1f1f1;
+    --light-500: #dddbd9;
     --text: black;
 
-    font-size: 32px;
+    font-size: 20px;
   }
 
   * {
     box-sizing: border-box;
     font-family: "Aleo", serif;
+  }
+
+  html,
+  body {
+    height: 100%;
   }
 
   html {
@@ -60,9 +86,7 @@ const { title } = Astro.props;
   body {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
     margin: 0;
-    padding: 0 20vw;
   }
 
   h1,
@@ -70,20 +94,71 @@ const { title } = Astro.props;
   h3,
   h4,
   h5,
-  h6 {
+  h6,
+  p {
     margin: 0;
-    font-family: "Mochiy Pop One", sans-serif;
   }
 
-  nav,
-  main,
-  footer {
-    padding: 1rem;
+  h1 {
+    font-size: 1.5em;
+  }
+
+  body > a {
+    text-decoration: none;
+  }
+
+  .logo-container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 6rem;
     background-color: var(--light-500);
   }
 
+  .logo-container h1 {
+    color: var(--primary-500);
+    text-shadow: 2px 2px 4px var(--primary-500);
+  }
+
+  .content-container {
+    padding: 0 20vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  nav,
+  main {
+    display: flex;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0 0 0 / 0.05);
+    flex-grow: 1;
+  }
+
   nav {
-    gap: 1rem;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  nav a {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    flex-grow: 1;
+    padding: 0.25rem;
+    text-decoration: none;
+    color: black;
+    background-color: rgb(0 0 0 / 0.1);
+  }
+
+  nav a:last-child {
+    border-right: 1px solid black;
+  }
+
+  nav a:nth-child(2n) {
+    background-color: rgb(0 0 0 / 0.15);
   }
 </style>

@@ -1,0 +1,35 @@
+---
+const { title, preview, image } = Astro.props;
+---
+
+<div class="container">
+  <img src={image} />
+  <div class="text-container">
+    <h1>{title}</h1>
+    <p>{preview}</p>
+  </div>
+</div>
+
+<style>
+  .container {
+    display: flex;
+    padding: 1em 2em;
+    gap: 2em;
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .text-container p {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+</style>
