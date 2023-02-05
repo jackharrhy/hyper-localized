@@ -5,47 +5,71 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="home">
-  <swiper-container class="carousel" speed="500" loop="true" autoplay="true">
+  <swiper-container
+    class="carousel"
+    speed="500"
+    loop="true"
+    autoplay="true"
+    pagination="true"
+  >
     <swiper-slide>slide 1</swiper-slide>
     <swiper-slide>slide 2</swiper-slide>
     <swiper-slide>slide 3</swiper-slide>
     <swiper-slide>slide 4</swiper-slide>
   </swiper-container>
-  <div class="news-container">
-    <div class="section-header">
+  <main>
+    <div class="news-section-header">
       <h1>News</h1>
     </div>
-    <div class="big-story">
+    <div class="news-feature">
       <HomepageStory
         title="Stick man lost in white void"
         preview={lorem}
         image="https://i.imgur.com/0PsgEpi.png"
       />
     </div>
-    <div class="aside-1">
-      <HomepageStory
-        title="Stick man lost in white void"
-        preview={lorem}
-        image="https://i.imgur.com/0PsgEpi.png"
-      />
+    <div class="news-asides">
+      <div class="news-aside-1">
+        <HomepageStory
+          title="Stick man lost in white void"
+          preview={lorem}
+          image="https://i.imgur.com/0PsgEpi.png"
+        />
+      </div>
+      <div class="news-aside-2">
+        <HomepageStory
+          title="Stick man lost in white void"
+          preview={lorem}
+          image="https://i.imgur.com/0PsgEpi.png"
+        />
+      </div>
     </div>
-    <div class="aside-2">
-      <HomepageStory
-        title="Stick man lost in white void"
-        preview={lorem}
-        image="https://i.imgur.com/0PsgEpi.png"
-      />
+    <div class="video-and-breaking">
+      <div class="video-feature">
+        <img src="https://i.imgur.com/g9fFNs9.png" />
+        <p>watch our new video!</p>
+      </div>
+      <div class="breaking-news">
+        <h2>breaking news!</h2>
+        <p>lorem ipsumm</p>
+      </div>
     </div>
-  </div>
+    <div class="shop-section-header">
+      <h1>Shop</h1>
+    </div>
+    <div class="shop-feature">featured item</div>
+    <div class="shop-asides">
+      <div class="shop-aside-1">item 1</div>
+      <div class="shop-aside-2">item 2</div>
+      <div class="shop-aside-2">item 3</div>
+    </div>
+  </main>
 </Layout>
 
 <style>
   swiper-container {
     height: 12rem;
     width: 100%;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
   }
 
   swiper-slide {
@@ -54,59 +78,36 @@ import Layout from "../layouts/Layout.astro";
     align-items: center;
   }
 
-  .news-container {
-    display: grid;
-    flex-grow: 1;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3em 1fr 1fr;
-    grid-auto-columns: 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "section-header section-header"
-      "big-story big-story"
-      "aside-1 aside-2";
+  main {
+    padding: 0.5rem 1rem;
   }
 
-  .section-header {
-    grid-area: section-header;
+  .news-section-header,
+  .shop-section-header {
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .section-header,
-  .big-story,
-  .aside-1,
-  .aside-2 {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-  }
-
-  .big-story,
-  .aside-1,
-  .aside-2 {
+  .news-asides {
     display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .big-story {
-    grid-area: big-story;
-  }
-
-  .aside-1 {
-    grid-area: aside-1;
-    border-right: none;
-  }
-
-  .aside-2 {
-    grid-area: aside-2;
-  }
-
-  .aside-1,
-  .aside-2 {
+    gap: 2rem;
     font-size: 0.75rem;
+  }
+
+  .video-and-breaking {
+    display: flex;
+  }
+
+  .video-feature,
+  .breaking-news {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video-feature {
+    justify-content: center;
+    align-items: center;
   }
 </style>
