@@ -1,7 +1,12 @@
 ---
+import { getCollection } from "astro:content";
 import HomepageStory from "../components/HomepageStory.astro";
 import { lorem } from "../fixtures/lorem";
 import Layout from "../layouts/Layout.astro";
+
+const [latestPost, secondLatest, thirdLatest] = (
+  await getCollection("blog")
+).reverse();
 ---
 
 <Layout title="home">
@@ -23,24 +28,24 @@ import Layout from "../layouts/Layout.astro";
     </div>
     <div class="news-feature">
       <HomepageStory
-        title="Stick man lost in white void"
+        title={latestPost.data.title}
         preview={lorem}
-        image="https://i.imgur.com/0PsgEpi.png"
+        image={latestPost.data.image}
       />
     </div>
     <div class="news-asides">
       <div class="news-aside-1">
         <HomepageStory
-          title="Stick man lost in white void"
+          title={secondLatest.data.title}
           preview={lorem}
-          image="https://i.imgur.com/0PsgEpi.png"
+          image={secondLatest.data.image}
         />
       </div>
       <div class="news-aside-2">
         <HomepageStory
-          title="Stick man lost in white void"
+          title={thirdLatest.data.title}
           preview={lorem}
-          image="https://i.imgur.com/0PsgEpi.png"
+          image={thirdLatest.data.image}
         />
       </div>
     </div>
@@ -51,7 +56,7 @@ import Layout from "../layouts/Layout.astro";
       </div>
       <div class="breaking-news">
         <h2>breaking news!</h2>
-        <p>lorem ipsumm</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </div>
     <div class="shop-section-header">
@@ -102,6 +107,7 @@ import Layout from "../layouts/Layout.astro";
   .video-feature,
   .breaking-news {
     width: 50%;
+    min-height: 8rem;
     display: flex;
     flex-direction: column;
   }

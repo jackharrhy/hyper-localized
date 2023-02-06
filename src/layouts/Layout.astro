@@ -18,7 +18,7 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,400;0,700;1,400;1,700&family=Mochiy+Pop+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <link
@@ -28,7 +28,6 @@ const { title } = Astro.props;
     <script
       src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"
     ></script>
-
     <title>james website - {title}</title>
   </head>
   <body>
@@ -59,7 +58,7 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --primary-500: #4db8c4;
+    --primary-500: #019a66;
     --secondary-500: #aa5656;
     --dark-500: #f1f1f1;
     --light-500: #dddbd9;
@@ -70,7 +69,7 @@ const { title } = Astro.props;
 
   * {
     box-sizing: border-box;
-    font-family: "Aleo", serif;
+    font-family: "Libre Caslon Text", serif;
   }
 
   html,
@@ -111,8 +110,9 @@ const { title } = Astro.props;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 6rem;
+    min-height: 7rem;
     background-color: var(--light-500);
+    font-size: xx-large;
   }
 
   .logo-container h1 {
@@ -145,10 +145,11 @@ const { title } = Astro.props;
 
   nav a {
     flex-grow: 1;
-    padding: 0.25rem;
+    padding: 0.4rem;
+    font-size: larger;
     text-decoration: none;
     color: black;
-    background-color: rgb(0 0 0 / 0.1);
+    background-color: rgb(0 0 0 / 0.125);
   }
 
   nav a:nth-child(2n) {
