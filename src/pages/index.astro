@@ -1,11 +1,12 @@
 ---
 import { getCollection } from "astro:content";
-import HomepageStory from "../components/HomepageStory.astro";
+import Article from "../components/Article.astro";
+import FeatureArticle from "../components/FeatureArticle.astro";
 import { lorem } from "../fixtures/lorem";
 import Layout from "../layouts/Layout.astro";
 
-const [latestPost, secondLatest, thirdLatest] = (
-  await getCollection("blog")
+const [latestNews, secondLatestNews, thirdLatestNews] = (
+  await getCollection("news")
 ).reverse();
 ---
 
@@ -27,25 +28,28 @@ const [latestPost, secondLatest, thirdLatest] = (
       <h1>News</h1>
     </div>
     <div class="news-feature">
-      <HomepageStory
-        title={latestPost.data.title}
+      <FeatureArticle
+        slug={latestNews.slug}
+        title={latestNews.data.title}
         preview={lorem}
-        image={latestPost.data.image}
+        image={latestNews.data.image}
       />
     </div>
     <div class="news-asides">
       <div class="news-aside-1">
-        <HomepageStory
-          title={secondLatest.data.title}
+        <Article
+          slug={secondLatestNews.slug}
+          title={secondLatestNews.data.title}
           preview={lorem}
-          image={secondLatest.data.image}
+          image={secondLatestNews.data.image}
         />
       </div>
       <div class="news-aside-2">
-        <HomepageStory
-          title={thirdLatest.data.title}
+        <Article
+          slug={thirdLatestNews.slug}
+          title={thirdLatestNews.data.title}
           preview={lorem}
-          image={thirdLatest.data.image}
+          image={thirdLatestNews.data.image}
         />
       </div>
     </div>

@@ -39,7 +39,7 @@ const { title } = Astro.props;
     <div class="content-container">
       <nav>
         <a href="/videos/">videos</a>
-        <a href="/blog/">blog</a>
+        <a href="/news/">news</a>
         <a href="/shop/">shop</a>
         <a href="/about/">about us</a>
       </nav>
@@ -58,8 +58,8 @@ const { title } = Astro.props;
 
 <style is:global>
   :root {
-    --primary-500: #019a66;
-    --secondary-500: #aa5656;
+    --primary-500: #eac81c;
+    --secondary-500: #f09917;
     --dark-500: #f1f1f1;
     --light-500: #dddbd9;
     --text: black;
@@ -124,6 +124,10 @@ const { title } = Astro.props;
     padding: 0 20vw;
     display: flex;
     flex-direction: column;
+  }
+
+  .content-container,
+  main {
   }
 
   nav,

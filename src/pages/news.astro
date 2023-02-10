@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content";
+import Article from "../components/Article.astro";
+import FeatureArticle from "../components/FeatureArticle.astro";
+import { lorem } from "../fixtures/lorem";
+import Layout from "../layouts/Layout.astro";
+
+const [topArticle, ...articles] = (await getCollection("news")).reverse();
+---
+
+<Layout title="news">
+  <main>
+    <h1>News Articles</h1>
+    <FeatureArticle
+      slug={topArticle.slug}
+      title={topArticle.data.title}
+      preview={lorem}
+      image={topArticle.data.image}
+    />
+    <hr class="line" />
+    <div class="articles">
+      {
+        articles.map(({ slug, data: { title, image } }) => (
+          <div class="article">
+            <Article slug={slug} title={title} preview={lorem} image={image} />
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  main {
+    padding: 1rem;
+  }
+  hr {
+    border: 1px solid rgb(0 0 0 / 0.25);
+    width: 100%;
+  }
+
+  .articles {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .article {
+    width: 50%;
+  }
+</style>
