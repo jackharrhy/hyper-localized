@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import Article from "../components/Article.astro";
-import FeatureArticle from "../components/FeatureArticle.astro";
 import { lorem } from "../fixtures/lorem";
 import Layout from "../layouts/Layout.astro";
 
@@ -12,112 +11,73 @@ const [latestNews, secondLatestNews, thirdLatestNews] = (
 
 <Layout title="home">
   <swiper-container
-    class="carousel"
+    class="h-[16rem] w-full"
     speed="500"
     loop="true"
     autoplay="true"
     pagination="true"
   >
-    <swiper-slide>slide 1</swiper-slide>
-    <swiper-slide>slide 2</swiper-slide>
-    <swiper-slide>slide 3</swiper-slide>
-    <swiper-slide>slide 4</swiper-slide>
+    <swiper-slide class="flex justify-center items-center">slide 1</swiper-slide
+    >
+    <swiper-slide class="flex justify-center items-center">slide 2</swiper-slide
+    >
+    <swiper-slide class="flex justify-center items-center">slide 3</swiper-slide
+    >
+    <swiper-slide class="flex justify-center items-center">slide 4</swiper-slide
+    >
   </swiper-container>
-  <main>
-    <div class="news-section-header">
-      <h1>News</h1>
-    </div>
-    <div class="news-feature">
-      <FeatureArticle
-        slug={latestNews.slug}
-        title={latestNews.data.title}
+  <div class="flex justify-center items-center border-clay-500 border-y">
+    <h1 class="text-2xl py-2 font-medium">NEWS</h1>
+  </div>
+  <div class="border-clay-500 border-b">
+    <Article
+      variant="large"
+      slug={latestNews.slug}
+      title={latestNews.data.title}
+      preview={lorem}
+      image={latestNews.data.image}
+    />
+  </div>
+  <div class="flex">
+    <div class="border-clay-500 border-r w-1/2">
+      <Article
+        slug={secondLatestNews.slug}
+        title={secondLatestNews.data.title}
         preview={lorem}
-        image={latestNews.data.image}
+        image={secondLatestNews.data.image}
       />
     </div>
-    <div class="news-asides">
-      <div class="news-aside-1">
-        <Article
-          slug={secondLatestNews.slug}
-          title={secondLatestNews.data.title}
-          preview={lorem}
-          image={secondLatestNews.data.image}
-        />
-      </div>
-      <div class="news-aside-2">
-        <Article
-          slug={thirdLatestNews.slug}
-          title={thirdLatestNews.data.title}
-          preview={lorem}
-          image={thirdLatestNews.data.image}
-        />
-      </div>
+    <div class="w-1/2">
+      <Article
+        slug={thirdLatestNews.slug}
+        title={thirdLatestNews.data.title}
+        preview={lorem}
+        image={thirdLatestNews.data.image}
+      />
     </div>
-    <div class="video-and-breaking">
-      <div class="video-feature">
-        <img src="https://i.imgur.com/g9fFNs9.png" />
-        <p>watch our new video!</p>
-      </div>
-      <div class="breaking-news">
-        <h2>breaking news!</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
+  </div>
+  <div class="flex border-clay-500 border-t">
+    <div
+      class="flex flex-col w-1/2 justify-center items-center border-clay-500 border-r"
+    >
+      <img src="https://i.imgur.com/g9fFNs9.png" />
+      <p>watch our new video!</p>
     </div>
-    <div class="shop-section-header">
-      <h1>Shop</h1>
+    <div class="flex flex-col w-1/2">
+      <h2>breaking news!</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
-    <div class="shop-feature">featured item</div>
-    <div class="shop-asides">
-      <div class="shop-aside-1">item 1</div>
-      <div class="shop-aside-2">item 2</div>
-      <div class="shop-aside-2">item 3</div>
-    </div>
-  </main>
+  </div>
+  <div class="flex justify-center items-center border-clay-500 border-y">
+    <h1 class="text-2xl py-2 font-medium">SHOP</h1>
+  </div>
+  <div class="text-center p-4">
+    <h1 class="text-3xl">HYPER-LOCALIZED Vol.1</h1>
+    <h2>A MONTHLY SUB-BASED ZINE ... BUY IT!</h2>
+  </div>
+  <div>
+    <div>Zines</div>
+    <div>Apparel</div>
+    <div>Prints</div>
+  </div>
 </Layout>
-
-<style>
-  swiper-container {
-    height: 12rem;
-    width: 100%;
-  }
-
-  swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  main {
-    padding: 0.5rem 1rem;
-  }
-
-  .news-section-header,
-  .shop-section-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .news-asides {
-    display: flex;
-    gap: 2rem;
-    font-size: 0.75rem;
-  }
-
-  .video-and-breaking {
-    display: flex;
-  }
-
-  .video-feature,
-  .breaking-news {
-    width: 50%;
-    min-height: 8rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .video-feature {
-    justify-content: center;
-    align-items: center;
-  }
-</style>

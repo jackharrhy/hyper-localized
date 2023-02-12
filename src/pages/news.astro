@@ -1,50 +1,45 @@
 ---
 import { getCollection } from "astro:content";
 import Article from "../components/Article.astro";
-import FeatureArticle from "../components/FeatureArticle.astro";
 import { lorem } from "../fixtures/lorem";
 import Layout from "../layouts/Layout.astro";
+import { chunks } from "../utils";
 
 const [topArticle, ...articles] = (await getCollection("news")).reverse();
 ---
 
 <Layout title="news">
-  <main>
-    <h1>News Articles</h1>
-    <FeatureArticle
-      slug={topArticle.slug}
-      title={topArticle.data.title}
-      preview={lorem}
-      image={topArticle.data.image}
-    />
-    <hr class="line" />
-    <div class="articles">
-      {
-        articles.map(({ slug, data: { title, image } }) => (
-          <div class="article">
-            <Article slug={slug} title={title} preview={lorem} image={image} />
-          </div>
-        ))
-      }
-    </div>
-  </main>
+  <div class="flex justify-center items-center border-clay-500 border-b">
+    <h1 class="text-2xl py-2 font-medium">NEWS</h1>
+  </div>
+  <Article
+    variant="large"
+    slug={topArticle.slug}
+    title={topArticle.data.title}
+    preview={lorem}
+    image={topArticle.data.image}
+  />
+  <hr class="border-clay-500" />
+  {
+    Array.from(chunks(articles, 2)).map(([left, right]) => (
+      <div class="flex flex-wrap border-clay-500 border-b last:border-b-0">
+        <div class="w-1/2 border-clay-500 border-r">
+          <Article
+            slug={left.slug}
+            title={left.data.title}
+            preview={lorem}
+            image={left.data.image}
+          />
+        </div>
+        <div class="w-1/2">
+          <Article
+            slug={right.slug}
+            title={right.data.title}
+            preview={lorem}
+            image={right.data.image}
+          />
+        </div>
+      </div>
+    ))
+  }
 </Layout>
-
-<style>
-  main {
-    padding: 1rem;
-  }
-  hr {
-    border: 1px solid rgb(0 0 0 / 0.25);
-    width: 100%;
-  }
-
-  .articles {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .article {
-    width: 50%;
-  }
-</style>

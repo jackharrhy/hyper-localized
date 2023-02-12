@@ -1,52 +1,29 @@
 ---
-const { slug, title, preview, image } = Astro.props;
+import { clsx } from "clsx";
+
+const { slug, title, preview, image, variant = "small" } = Astro.props;
 ---
 
 <a href={`/news/${slug}`}>
-  <div class="container">
-    <img src={image} />
-    <div class="text-container">
-      <h1>{title}</h1>
-      <p>{preview}</p>
+  <div
+    class="flex p-2 gap-4 m-2 border-2 border-transparent hover:border-primary-500 transition-all delay-100"
+  >
+    <img
+      src={image}
+      class={clsx("shrink-0 object-cover", {
+        ["h-32 w-32"]: variant === "small",
+        ["h-48 w-48"]: variant === "large",
+      })}
+    />
+    <div class="flex flex-col gap-2">
+      <h1 class="text-xl font-bold">{title}</h1>
+      <p class="limit">{preview}</p>
     </div>
   </div>
 </a>
 
 <style>
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-  .container {
-    max-height: 20rem;
-    display: flex;
-    padding: 0.75rem 0;
-    gap: 1rem;
-    margin: 0.5rem;
-    padding: 0.5rem;
-    border: 3px solid transparent;
-    transition: all 0.2s ease-out;
-  }
-
-  .container:hover {
-    border: 3px solid var(--primary-500);
-  }
-
-  img {
-    height: 8rem;
-    width: 8rem;
-    flex-shrink: 0;
-    object-fit: cover;
-  }
-
-  .text-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .text-container p {
+  .limit {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
