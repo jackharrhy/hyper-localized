@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Article from "../components/Article.astro";
+import ShopCategory from "../components/ShopCategory.astro";
 import { lorem } from "../fixtures/lorem";
 import Layout from "../layouts/Layout.astro";
 
@@ -58,26 +59,54 @@ const [latestNews, secondLatestNews, thirdLatestNews] = (
   </div>
   <div class="flex border-clay-500 border-t">
     <div
-      class="flex flex-col w-1/2 justify-center items-center border-clay-500 border-r"
+      class="flex flex-col w-1/2 justify-center h-48 items-center border-clay-500 border-r p-3 gap-y-2"
     >
-      <img src="https://i.imgur.com/g9fFNs9.png" />
-      <p>watch our new video!</p>
+      <img src="https://i.imgur.com/g9fFNs9.png" class="h-full" />
+      <p class="text-lg">watch our new video!</p>
     </div>
     <div class="flex flex-col w-1/2">
-      <h2>breaking news!</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="flex justify-center items-center border-clay-500 border-b">
+        <h2 class="text-lg py-1">BREAKING NEWS</h2>
+      </div>
+      <p class="m-3">
+        there is breaking news here, the news is so breaking, that i don't even
+        think you've heard about it yet, hence it is breaking
+        <br />
+        once you read this news, you will want to break this to <i>all</i> of your
+        friends to be the breaker of news to them as well
+      </p>
     </div>
   </div>
   <div class="flex justify-center items-center border-clay-500 border-y">
     <h1 class="text-2xl py-2 font-medium">SHOP</h1>
   </div>
-  <div class="text-center p-4">
-    <h1 class="text-3xl">HYPER-LOCALIZED Vol.1</h1>
-    <h2>A MONTHLY SUB-BASED ZINE ... BUY IT!</h2>
+  <div
+    class="flex flex-col justify-center items-center p-4 h-40 border-clay-500 border-b"
+  >
+    <h1 class="text-4xl underline">HYPER-LOCALIZED Vol.1</h1>
+    <h2 class="text-2xl">A MONTHLY SUB-BASED ZINE ... BUY IT!</h2>
   </div>
-  <div>
-    <div>Zines</div>
-    <div>Apparel</div>
-    <div>Prints</div>
+  <div class="flex">
+    <div class="flex-grow border-clay-500 border-r">
+      <ShopCategory
+        id="zine"
+        title="Zine"
+        image="https://i.imgur.com/K8SaIUl.png"
+      />
+    </div>
+    <div class="flex-grow border-clay-500 border-r">
+      <ShopCategory
+        id="apparel"
+        title="Apparel"
+        image="https://i.imgur.com/hABcRGI.png"
+      />
+    </div>
+    <div class="flex-grow">
+      <ShopCategory
+        id="prints"
+        title="Prints"
+        image="https://i.imgur.com/ibJKvBx.png"
+      />
+    </div>
   </div>
 </Layout>
