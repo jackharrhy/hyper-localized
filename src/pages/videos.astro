@@ -1,10 +1,65 @@
 ---
+import VideoLink from "../components/VideoLink.astro";
 import Layout from "../layouts/Layout.astro";
+
+import { chunks } from "../utils";
+
+const videos = [
+  {
+    id: "blame-god",
+    title: "Blame God For All Your Problems",
+    image: "https://i.imgur.com/g9fFNs9.png",
+  },
+  {
+    id: "pizza-is-good",
+    title: "Pizza Is Good For You",
+    image: "https://i.imgur.com/g9fFNs9.png",
+  },
+  {
+    id: "no-care-for-nl",
+    title: "Why No One Cares About NL",
+    image: "https://i.imgur.com/g9fFNs9.png",
+  },
+  {
+    id: "clickbait",
+    title: "Watch This Video You'll Like It. Trust Me",
+    image: "https://i.imgur.com/g9fFNs9.png",
+  },
+  {
+    id: "bus-driver-interview",
+    title: "Interview With Bus Driver",
+    image: "https://i.imgur.com/g9fFNs9.png",
+  },
+  {
+    id: "big-harbour-rat-interview",
+    title: "Interview With Harbour Rat (Big)",
+    image: "https://i.imgur.com/g9fFNs9.png",
+  },
+];
 ---
 
 <Layout title="videos">
   <div class="flex justify-center items-center border-clay-500 border-b">
     <h1 class="text-2xl py-2 font-medium">VIDEOS</h1>
   </div>
-  todos
+  <div
+    class="w-full flex flex-col gap-y-4 items-center justify-center p-3 h-64 border-clay-500 border-b"
+  >
+    <img src="https://i.imgur.com/g9fFNs9.png" class="h-full" />
+    <p class="text-2xl font-bold underline">
+      The Feature Video You Should Click On
+    </p>
+  </div>
+  {
+    Array.from(chunks(videos, 2)).map(([left, right]) => (
+      <div class="flex flex-wrap border-clay-500 border-b last:border-b-0">
+        <div class="w-1/2 border-clay-500 border-r">
+          <VideoLink id={left.id} title={left.title} image={left.image} />
+        </div>
+        <div class="w-1/2">
+          <VideoLink id={right.id} title={right.title} image={right.image} />
+        </div>
+      </div>
+    ))
+  }
 </Layout>
