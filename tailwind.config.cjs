@@ -2,10 +2,14 @@
 module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
+    fontFamily: {
+      display: ["Chomsky", "serif"],
+      body: ["Libre Caslon Text", "serif"],
+    },
     extend: {
       colors: {
         primary: {
-          500: "#D6BC32",
+          500: "#BE1A1F",
         },
         secondary: {
           500: "#f09917",

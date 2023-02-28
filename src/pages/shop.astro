@@ -1,4 +1,5 @@
 ---
+import ShopItem from "../components/ShopItem.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -6,5 +7,52 @@ import Layout from "../layouts/Layout.astro";
   <div class="flex justify-center items-center border-clay-500 border-b">
     <h1 class="text-2xl py-2 font-medium">SHOP</h1>
   </div>
-  todo
+  <swiper-container
+    class="h-[16rem] w-full"
+    speed="500"
+    loop="true"
+    autoplay="true"
+    pagination="true"
+  >
+    <swiper-slide class="flex justify-center items-center">item 1</swiper-slide>
+    <swiper-slide class="flex justify-center items-center">item 2</swiper-slide>
+    <swiper-slide class="flex justify-center items-center">item 3</swiper-slide>
+    <swiper-slide class="flex justify-center items-center">item 4</swiper-slide>
+  </swiper-container>
+  <div class="flex justify-center items-center border-clay-500 border-y">
+    <h1 class="text-2xl py-2 font-medium">ZINES</h1>
+  </div>
+  <div class="flex">
+    <ShopItem id="zine1" title="Zine #1" />
+    <div class="w-px border-clay-500 border-r"></div>
+    <ShopItem id="zine2" title="Zine #2" />
+    <div class="w-px border-clay-500 border-r"></div>
+    <ShopItem id="zine3" title="Zine #3" />
+    <div class="w-px border-clay-500 border-r"></div>
+    <ShopItem id="zine4" title="Zine #4" />
+  </div>
+  <div class="flex justify-center items-center border-clay-500 border-y">
+    <h1 class="text-2xl py-2 font-medium">APPAREL</h1>
+  </div>
+  <div class="flex">
+    <ShopItem id="shirt" title="'Shirt'" />
+    <div class="w-px border-clay-500 border-r"></div>
+    <ShopItem id="underwear" title="'Underwear'" />
+    <div class="w-px border-clay-500 border-r"></div>
+    <ShopItem id="condom" title="'Condom'" />
+    <div class="w-px border-clay-500 border-r"></div>
+    <ShopItem id="pullover" title="'Pullover'" />
+  </div>
+  <div class="flex justify-center items-center border-clay-500 border-y">
+    <h1 class="text-2xl py-2 font-medium">PRINTS</h1>
+  </div>
+  <div class="flex">
+    <ShopItem id="print1" title="Print #1" />
+    <div class="w-px border-clay-500 border-r"></div>
+    <ShopItem id="print2" title="Print #2" />
+    <div class="w-px border-clay-500 border-r"></div>
+    <ShopItem id="print3" title="Print #3" />
+    <div class="w-px border-clay-500 border-r"></div>
+    <ShopItem id="print4" title="Print #4" />
+  </div>
 </Layout>

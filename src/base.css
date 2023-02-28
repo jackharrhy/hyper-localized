@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Libre Caslon Text", serif;
+@font-face {
+  font-family: Chomsky;
+  src: url("/fonts/Chomsky.otf");
 }

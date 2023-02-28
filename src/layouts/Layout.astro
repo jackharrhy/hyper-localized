@@ -34,12 +34,16 @@ import "../base.css";
     ></script>
     <title>hyper-localized - {title}</title>
   </head>
-  <body class="flex flex-col h-full text-dark-500">
+  <body class="flex flex-col h-full text-dark-500 font-body">
     <a href="/">
       <div
-        class="flex justify-center items-center h-20 bg-sand-400 text-3xl font-extrabold border-b border-clay-500"
+        class="flex justify-center items-center h-28 bg-sand-400 text-3xl font-extrabold border-b border-clay-500"
       >
-        <h1 class="text-primary-500">hyper-localized</h1>
+        <h1
+          class="header-logo text-primary-500 font-display text-6xl h-[4.3rem]"
+        >
+          hyper-localized
+        </h1>
       </div>
     </a>
     <div class="flex flex-col px-[20vw]">
@@ -69,3 +73,9 @@ import "../base.css";
 
   new Glide(".glide").mount();
 </script>
+
+<style>
+  .header-logo {
+    -webkit-text-stroke: 1px black;
+  }
+</style>

@@ -1,0 +1,10 @@
+---
+const { id, title } = Astro.props;
+---
+
+<a
+  href={`/shop/item/${id}`}
+  class="w-1/4 flex flex-col justify-center items-center px-2 py-8 gap-4 m-2 border-2 border-transparent hover:border-primary-500 transition-all delay-100"
+>
+  <p class="text-2xl font-bold underline">{title}</p>
+</a>
