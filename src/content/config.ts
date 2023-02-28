@@ -15,7 +15,16 @@ const videosCollection = defineCollection({
   }),
 });
 
+const shopCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    tags: z.array(z.string()),
+    image: z.string(),
+  }),
+});
+
 export const collections = {
   news: newsCollection,
   videos: videosCollection,
+  shop: shopCollection,
 };

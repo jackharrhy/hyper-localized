@@ -10,12 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.16.0",
+    "@astrojs/mdx": "^0.17.2",
     "@astrojs/tailwind": "^3.0.1",
     "@glidejs/glide": "^3.6.0",
-    "astro": "^2.0.10",
+    "astro": "^2.0.16",
     "clsx": "^1.2.1",
-    "tailwindcss": "^3.2.6"
+    "tailwindcss": "^3.2.7"
   },
   "devDependencies": {
     "@types/glidejs__glide": "^3.6.1"

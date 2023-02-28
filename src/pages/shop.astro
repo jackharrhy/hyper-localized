@@ -1,6 +1,19 @@
 ---
+import { getCollection } from "astro:content";
 import ShopItem from "../components/ShopItem.astro";
 import Layout from "../layouts/Layout.astro";
+
+const zineItems = await getCollection("shop", ({ data }) =>
+  data.tags.includes("zine")
+);
+
+const apparelItems = await getCollection("shop", ({ data }) =>
+  data.tags.includes("apparel")
+);
+
+const printItems = await getCollection("shop", ({ data }) =>
+  data.tags.includes("print")
+);
 ---
 
 <Layout title="shop">
@@ -23,37 +36,52 @@ import Layout from "../layouts/Layout.astro";
     <h1 class="text-2xl py-2 font-medium">ZINES</h1>
   </div>
   <div class="flex">
-    <ShopItem id="zine1" title="Zine #1" />
-    <div class="w-px border-clay-500 border-r"></div>
-    <ShopItem id="zine2" title="Zine #2" />
-    <div class="w-px border-clay-500 border-r"></div>
-    <ShopItem id="zine3" title="Zine #3" />
-    <div class="w-px border-clay-500 border-r"></div>
-    <ShopItem id="zine4" title="Zine #4" />
+    {
+      zineItems.map((zine, index) => (
+        <>
+          {index !== 0 && <div class="w-px border-clay-500 border-r" />}
+          <ShopItem
+            id={zine.slug}
+            title={zine.data.title}
+            image={zine.data.image}
+          />
+        </>
+      ))
+    }
   </div>
   <div class="flex justify-center items-center border-clay-500 border-y">
     <h1 class="text-2xl py-2 font-medium">APPAREL</h1>
   </div>
   <div class="flex">
-    <ShopItem id="shirt" title="'Shirt'" />
-    <div class="w-px border-clay-500 border-r"></div>
-    <ShopItem id="underwear" title="'Underwear'" />
-    <div class="w-px border-clay-500 border-r"></div>
-    <ShopItem id="condom" title="'Condom'" />
-    <div class="w-px border-clay-500 border-r"></div>
-    <ShopItem id="pullover" title="'Pullover'" />
+    {
+      apparelItems.map((zine, index) => (
+        <>
+          {index !== 0 && <div class="w-px border-clay-500 border-r" />}
+          <ShopItem
+            id={zine.slug}
+            title={zine.data.title}
+            image={zine.data.image}
+          />
+        </>
+      ))
+    }
   </div>
   <div class="flex justify-center items-center border-clay-500 border-y">
     <h1 class="text-2xl py-2 font-medium">PRINTS</h1>
   </div>
   <div class="flex">
-    <ShopItem id="print1" title="Print #1" />
-    <div class="w-px border-clay-500 border-r"></div>
-    <ShopItem id="print2" title="Print #2" />
-    <div class="w-px border-clay-500 border-r"></div>
-    <ShopItem id="print3" title="Print #3" />
-    <div class="w-px border-clay-500 border-r"></div>
-    <ShopItem id="print4" title="Print #4" />
+    {
+      printItems.map((zine, index) => (
+        <>
+          {index !== 0 && <div class="w-px border-clay-500 border-r" />}
+          <ShopItem
+            id={zine.slug}
+            title={zine.data.title}
+            image={zine.data.image}
+          />
+        </>
+      ))
+    }
   </div>
   <div class="flex border-clay-500 border-t">
     <div
