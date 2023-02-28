@@ -1,0 +1,24 @@
+---
+import { getCollection, getEntryBySlug } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const news = await getCollection("shop");
+  return news.map(({ slug, data }) => ({ params: { slug }, props: data }));
+}
+
+const { slug } = Astro.params;
+const { title, image } = Astro.props;
+const video = await getEntryBySlug("shop", slug!);
+const { Content } = await video!.render();
+---
+
+<Layout title={title}>
+  <div class="flex justify-center items-center border-clay-500 border-b">
+    <h1 class="text-3xl py-3 font-bold uppercase">{title}</h1>
+  </div>
+  <main class="flex flex-col p-4 gap-4">
+    <img src={image} class="h-[30rem] object-contain" />
+    <Content />
+  </main>
+</Layout>
