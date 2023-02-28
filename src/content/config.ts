@@ -8,6 +8,14 @@ const newsCollection = defineCollection({
   }),
 });
 
+const videosCollection = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    image: z.string(),
+  }),
+});
+
 export const collections = {
   news: newsCollection,
+  videos: videosCollection,
 };
