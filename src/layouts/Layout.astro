@@ -8,6 +8,8 @@ export interface Props {
 const { title } = Astro.props;
 
 import "../base.css";
+import Weather from "../components/Weather";
+import Time from "../components/Time";
 ---
 
 <!DOCTYPE html>
@@ -39,14 +41,22 @@ import "../base.css";
       <div
         class="flex justify-center items-center h-28 bg-sand-400 text-3xl font-extrabold border-b border-clay-500"
       >
-        <h1
-          class="header-logo text-primary-500 font-display text-6xl h-[4.3rem]"
+        <div
+          class="absolute left-0 px-8 font-display text-primary-500 text-center"
         >
+          <Time client:only="react" />
+        </div>
+        <h1 class="text-primary-500 font-display text-6xl h-[4.3rem]">
           hyper-localized
         </h1>
+        <div
+          class="absolute right-0 px-8 font-display text-primary-500 text-center"
+        >
+          <Weather client:only="react" />
+        </div>
       </div>
     </a>
-    <div class="flex flex-col px-[20vw]">
+    <div class="flex flex-col px-8 sm:px-16 xl:px-[20vw]">
       <nav class="flex justify-around text-center">
         <NavLink href="/videos/">videos</NavLink>
         <NavLink href="/news/">news</NavLink>
@@ -73,9 +83,3 @@ import "../base.css";
 
   new Glide(".glide").mount();
 </script>
-
-<style>
-  .header-logo {
-    -webkit-text-stroke: 1px black;
-  }
-</style>
