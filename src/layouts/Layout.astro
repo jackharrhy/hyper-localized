@@ -17,6 +17,17 @@ import Time from "../components/Time";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JF7N6Y3WPG"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-JF7N6Y3WPG");
+    </script>
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👶</text></svg>"
@@ -37,25 +48,25 @@ import Time from "../components/Time";
     <title>hyper-localized - {title}</title>
   </head>
   <body class="flex flex-col h-full text-dark-500 font-body">
-    <a href="/">
+    <div
+      class="flex justify-center items-center py-4 h-28 bg-sand-400 text-3xl font-extrabold border-b border-clay-500"
+    >
       <div
-        class="flex justify-center items-center h-28 bg-sand-400 text-3xl font-extrabold border-b border-clay-500"
+        class="absolute left-0 px-8 font-display text-primary-500 text-center"
       >
-        <div
-          class="absolute left-0 px-8 font-display text-primary-500 text-center"
-        >
-          <Time client:only="react" />
-        </div>
+        <Time client:only="react" />
+      </div>
+      <a href="/">
         <h1 class="text-primary-500 font-display text-6xl h-[4.3rem]">
           hyper-localized
         </h1>
-        <div
-          class="absolute right-0 px-8 font-display text-primary-500 text-center"
-        >
-          <Weather client:only="react" />
-        </div>
+      </a>
+      <div
+        class="absolute right-0 px-8 font-display text-primary-500 text-center"
+      >
+        <Weather client:only="react" />
       </div>
-    </a>
+    </div>
     <div class="flex flex-col px-8 sm:px-16 xl:px-[20vw]">
       <nav class="flex justify-around text-center">
         <NavLink href="/videos/">videos</NavLink>
