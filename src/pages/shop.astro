@@ -3,16 +3,19 @@ import { getCollection } from "astro:content";
 import ShopItem from "../components/ShopItem.astro";
 import Layout from "../layouts/Layout.astro";
 
-const zineItems = await getCollection("shop", ({ data }) =>
-  data.tags.includes("zine")
+const zineItems = await getCollection(
+  "shop",
+  ({ data }) => data.category === "zines"
 );
 
-const apparelItems = await getCollection("shop", ({ data }) =>
-  data.tags.includes("apparel")
+const apparelItems = await getCollection(
+  "shop",
+  ({ data }) => data.category === "apparel"
 );
 
-const printItems = await getCollection("shop", ({ data }) =>
-  data.tags.includes("print")
+const printItems = await getCollection(
+  "shop",
+  ({ data }) => data.category === "prints"
 );
 ---
 
@@ -43,10 +46,17 @@ const printItems = await getCollection("shop", ({ data }) =>
           <ShopItem
             id={zine.slug}
             title={zine.data.title}
-            image={zine.data.image}
+            image={`https://hyper-localized.jack.camera/products/zines/${zine.slug}/thumbnail.png`}
           />
         </>
       ))
+    }
+    {
+      zineItems.length === 0 && (
+        <div class="flex items-center justify-center w-full h-32 italic opacity-70">
+          <p>no zines at the moment</p>
+        </div>
+      )
     }
   </div>
   <div class="flex justify-center items-center border-clay-500 border-y">
@@ -54,16 +64,23 @@ const printItems = await getCollection("shop", ({ data }) =>
   </div>
   <div class="flex">
     {
-      apparelItems.map((zine, index) => (
+      apparelItems.map((apparel, index) => (
         <>
           {index !== 0 && <div class="w-px border-clay-500 border-r" />}
           <ShopItem
-            id={zine.slug}
-            title={zine.data.title}
-            image={zine.data.image}
+            id={apparel.slug}
+            title={apparel.data.title}
+            image={`https://hyper-localized.jack.camera/products/apparel/${apparel.slug}/thumbnail.png`}
           />
         </>
       ))
+    }
+    {
+      apparelItems.length === 0 && (
+        <div class="flex items-center justify-center w-full h-32 italic opacity-70">
+          <p>no apparel items at the moment</p>
+        </div>
+      )
     }
   </div>
   <div class="flex justify-center items-center border-clay-500 border-y">
@@ -71,16 +88,23 @@ const printItems = await getCollection("shop", ({ data }) =>
   </div>
   <div class="flex">
     {
-      printItems.map((zine, index) => (
+      printItems.map((print, index) => (
         <>
           {index !== 0 && <div class="w-px border-clay-500 border-r" />}
           <ShopItem
-            id={zine.slug}
-            title={zine.data.title}
-            image={zine.data.image}
+            id={print.slug}
+            title={print.data.title}
+            image={`https://hyper-localized.jack.camera/products/prints/${print.slug}/thumbnail.png`}
           />
         </>
       ))
+    }
+    {
+      printItems.length === 0 && (
+        <div class="flex items-center justify-center w-full h-32 italic opacity-70">
+          <p>no prints at the moment</p>
+        </div>
+      )
     }
   </div>
   <div class="flex border-clay-500 border-t">

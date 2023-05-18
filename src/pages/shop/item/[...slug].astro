@@ -8,9 +8,11 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const { title, image } = Astro.props;
+const { title, category } = Astro.props;
 const video = await getEntryBySlug("shop", slug!);
 const { Content } = await video!.render();
+
+const image = `https://hyper-localized.jack.camera/products/${category}/${slug}/highres.png`;
 ---
 
 <Layout title={title}>
