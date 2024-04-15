@@ -9,7 +9,7 @@ import keystatic from "@keystatic/astro";
 // https://astro.build/config
 export default defineConfig({
   output: "hybrid",
-  site: "https://hyper-localized.jackharrhy.com/",
+  site: "https://hyper-localized.jackharrhy.dev/",
   adapter: node({
     mode: "standalone",
   }),
