@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import Article from "../components/Article.astro";
-import { lorem } from "../fixtures/lorem";
-import Layout from "../layouts/Layout.astro";
-import { chunks } from "../utils";
+import Article from "../../components/Article.astro";
+import { lorem } from "../../fixtures/lorem";
+import Layout from "../../layouts/Layout.astro";
+import { chunks } from "../../utils";
 
 const [topArticle, ...articles] = (await getCollection("news")).reverse();
 ---

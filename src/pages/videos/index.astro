@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import VideoLink from "../components/VideoLink.astro";
-import Layout from "../layouts/Layout.astro";
+import VideoLink from "../../components/VideoLink.astro";
+import Layout from "../../layouts/Layout.astro";
 
-import { chunks } from "../utils";
+import { chunks } from "../../utils";
 
 const [topVideo, ...videos] = (await getCollection("videos")).reverse();
 

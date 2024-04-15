@@ -35,9 +35,11 @@ const printItems = await getCollection(
     <swiper-slide class="flex justify-center items-center">item 3</swiper-slide>
     <swiper-slide class="flex justify-center items-center">item 4</swiper-slide>
   </swiper-container>
-  <div class="flex justify-center items-center border-clay-500 border-y">
-    <h1 class="text-2xl py-2 font-medium">ZINES</h1>
-  </div>
+  <a href="/zines">
+    <div class="flex justify-center items-center border-clay-500 border-y">
+      <h1 class="text-2xl py-2 font-medium">ZINES</h1>
+    </div>
+  </a>
   <div class="flex">
     {
       zineItems.map((zine, index) => (
@@ -59,9 +61,11 @@ const printItems = await getCollection(
       )
     }
   </div>
-  <div class="flex justify-center items-center border-clay-500 border-y">
-    <h1 class="text-2xl py-2 font-medium">APPAREL</h1>
-  </div>
+  <a href="/apparel">
+    <div class="flex justify-center items-center border-clay-500 border-y">
+      <h1 class="text-2xl py-2 font-medium">APPAREL</h1>
+    </div>
+  </a>
   <div class="flex">
     {
       apparelItems.map((apparel, index) => (
@@ -83,9 +87,11 @@ const printItems = await getCollection(
       )
     }
   </div>
-  <div class="flex justify-center items-center border-clay-500 border-y">
-    <h1 class="text-2xl py-2 font-medium">PRINTS</h1>
-  </div>
+  <a href="/prints">
+    <div class="flex justify-center items-center border-clay-500 border-y">
+      <h1 class="text-2xl py-2 font-medium">PRINTS</h1>
+    </div>
+  </a>
   <div class="flex">
     {
       printItems.map((print, index) => (
