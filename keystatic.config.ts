@@ -29,6 +29,7 @@ export default config({
         }),
       },
     }),
+    /*
     videos: collection({
       label: "Videos",
       slugField: "title",
@@ -51,5 +52,6 @@ export default config({
         }),
       },
     }),
+    */
   },
 });

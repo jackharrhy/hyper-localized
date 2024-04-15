@@ -1,29 +1,22 @@
 import { defineConfig } from "astro/config";
-import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
-import nodejs from "@astrojs/node";
 import markdoc from "@astrojs/markdoc";
 
-import node from "@astrojs/node";
+import keystatic from "@keystatic/astro";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
-  adapter: node({
-    mode: "standalone",
-  }),
-  server: {
-    host: "127.0.0.1",
-  },
+  output: "hybrid",
   site: "https://hyper-localized.jackharrhy.com/",
   integrations: [
+    react(),
+    markdoc(),
+    keystatic(),
     tailwind({
       config: {
         applyBaseStyles: false,
       },
     }),
-    react(),
-    markdoc(),
   ],
 });
