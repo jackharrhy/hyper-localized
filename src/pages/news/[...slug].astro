@@ -20,8 +20,10 @@ const { Content } = await entry!.render();
   <div class="flex justify-center items-center border-clay-500 border-b">
     <h1 class="text-3xl py-3 font-bold uppercase">{title}</h1>
   </div>
-  <main class="flex flex-col p-4 gap-4">
+  <main class="flex flex-col items-center p-4 gap-4">
     <img src={image} class="h-[30rem] object-contain" />
-    <Content />
+    <div class="prose prose-stone">
+      <Content />
+    </div>
   </main>
 </Layout>
