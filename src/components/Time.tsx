@@ -4,7 +4,6 @@ const getCurrentTime = () =>
   new Intl.DateTimeFormat("en-US", {
     hour: "numeric",
     minute: "numeric",
-    second: "numeric",
     timeZone: "America/St_Johns",
   }).format(new Date());
 
