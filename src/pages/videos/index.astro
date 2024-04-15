@@ -32,15 +32,15 @@ const [topVideo, ...videos] = (await getCollection("videos")).reverse();
             image={left.data.image}
           />
         </div>
-        <div class="w-1/2">
-          {right && (
+        {right && (
+          <div class="w-1/2">
             <VideoLink
               slug={right.slug}
               title={right.data.title}
               image={right.data.image}
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
     ))
   }

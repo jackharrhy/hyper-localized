@@ -46,14 +46,16 @@ const [topArticle, ...articles] = (await getCollection("news")).reverse();
             image={left.data.image}
           />
         </div>
-        <div class="w-1/2">
-          <Article
-            slug={right.slug}
-            title={right.data.title}
-            preview={lorem}
-            image={right.data.image}
-          />
-        </div>
+        {right && (
+          <div class="w-1/2">
+            <Article
+              slug={right.slug}
+              title={right.data.title}
+              preview={lorem}
+              image={right.data.image}
+            />
+          </div>
+        )}
       </div>
     ))
   }
