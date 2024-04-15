@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
+import node from "@astrojs/node";
 
 import keystatic from "@keystatic/astro";
 
@@ -9,6 +10,9 @@ import keystatic from "@keystatic/astro";
 export default defineConfig({
   output: "hybrid",
   site: "https://hyper-localized.jackharrhy.com/",
+  adapter: node({
+    mode: "standalone",
+  }),
   integrations: [
     react(),
     markdoc(),
