@@ -6,8 +6,6 @@ import Layout from "../../layouts/Layout.astro";
 import { chunks } from "../../utils";
 
 const [topVideo, ...videos] = (await getCollection("videos")).reverse();
-
-console.log(Array.from(chunks(videos, 2)));
 ---
 
 <Layout title="videos">

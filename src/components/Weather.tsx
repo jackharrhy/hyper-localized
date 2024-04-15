@@ -10,7 +10,7 @@ export default function Weather() {
     fetch(WEATHER_API)
       .then((response) => response.json())
       .then((data) => setWeatherData(data))
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   }, []);
 
   if (!weatherData) {

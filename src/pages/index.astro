@@ -1,16 +1,15 @@
 ---
 import { getCollection } from "astro:content";
 import Article from "../components/Article.astro";
-import ShopCategory from "../components/ShopCategory.astro";
 import { lorem } from "../fixtures/lorem";
 import Layout from "../layouts/Layout.astro";
+import { chunks } from "../utils";
 
-const [latestNews, secondLatestNews, thirdLatestNews] = (
-  await getCollection("news")
-).reverse();
+const [topArticle, ...articles] = (await getCollection("news")).reverse();
 ---
 
 <Layout title="home">
+  <!--
   <swiper-container
     class="h-[16rem] w-full"
     speed="500"
@@ -27,64 +26,40 @@ const [latestNews, secondLatestNews, thirdLatestNews] = (
     <swiper-slide class="flex justify-center items-center">slide 4</swiper-slide
     >
   </swiper-container>
-  <div class="flex justify-center items-center border-clay-500 border-y">
-    <h1 class="text-2xl py-2 font-medium">NEWS</h1>
-  </div>
-  <div class="border-clay-500 border-b">
-    <Article
-      variant="large"
-      slug={latestNews.slug}
-      title={latestNews.data.title}
-      preview={lorem}
-      image={latestNews.data.image}
-    />
-  </div>
-  <div class="flex">
-    <div class="border-clay-500 border-r w-1/2">
-      <Article
-        slug={secondLatestNews.slug}
-        title={secondLatestNews.data.title}
-        preview={lorem}
-        image={secondLatestNews.data.image}
-      />
-    </div>
-    <div class="w-1/2">
-      <Article
-        slug={thirdLatestNews.slug}
-        title={thirdLatestNews.data.title}
-        preview={lorem}
-        image={thirdLatestNews.data.image}
-      />
-    </div>
-  </div>
-  <div class="flex border-clay-500 border-t">
-    <div
-      class="flex flex-col w-1/2 justify-center h-48 items-center border-clay-500 border-r p-3 gap-y-2"
-    >
-      <img src="https://i.imgur.com/g9fFNs9.png" class="h-full" />
-      <p class="text-lg">watch our new video!</p>
-    </div>
-    <div class="flex flex-col w-1/2">
-      <div class="flex justify-center items-center border-clay-500 border-b">
-        <h2 class="text-lg py-1">BREAKING NEWS</h2>
+  -->
+  <Article
+    variant="large"
+    slug={topArticle.slug}
+    title={topArticle.data.title}
+    preview={lorem}
+    image={topArticle.data.image}
+  />
+  <hr class="border-clay-500" />
+  {
+    Array.from(chunks(articles, 2)).map(([left, right]) => (
+      <div class="flex flex-wrap border-clay-500 border-b last:border-b-0">
+        <div class="w-1/2 border-clay-500 border-r">
+          <Article
+            slug={left.slug}
+            title={left.data.title}
+            preview={lorem}
+            image={left.data.image}
+          />
+        </div>
+        <div class="w-1/2">
+          <Article
+            slug={right.slug}
+            title={right.data.title}
+            preview={lorem}
+            image={right.data.image}
+          />
+        </div>
       </div>
-      <p class="m-3">
-        there is breaking news here, the news is so breaking, that i don't even
-        think you've heard about it yet, hence it is breaking
-        <br />
-        once you read this news, you will want to break this to <i>all</i> of your
-        friends to be the breaker of news to them as well
-      </p>
-    </div>
-  </div>
+    ))
+  }
+  <!--
   <div class="flex justify-center items-center border-clay-500 border-y">
     <h1 class="text-2xl py-2 font-medium">SHOP</h1>
-  </div>
-  <div
-    class="flex flex-col justify-center items-center p-4 h-40 border-clay-500 border-b"
-  >
-    <h1 class="text-4xl underline">HYPER-LOCALIZED Vol.1</h1>
-    <h2 class="text-2xl">A MONTHLY SUB-BASED ZINE ... BUY IT!</h2>
   </div>
   <div class="flex">
     <div class="flex-grow border-clay-500 border-r">
@@ -108,5 +83,5 @@ const [latestNews, secondLatestNews, thirdLatestNews] = (
         image="https://i.imgur.com/ibJKvBx.png"
       />
     </div>
-  </div>
+    -->
 </Layout>
